@@ -9,10 +9,9 @@
     "ghcr.io/tailscale/codespace/tailscale:latest": {},
     "ghcr.io/rahuldhole/openbox/xrdp:latest": {},
     "ghcr.io/rahuldhole/openbox/google-chrome:latest": {},
-    "ghcr.io/rahuldhole/openbox/google-edge:latest": {},
+    "ghcr.io/rahuldhole/openbox/microsoft-edge:latest": {},
     "ghcr.io/rahuldhole/openbox/vscode:latest": {}
   },
-  // need to create password for xrdp connection
-  // "postCreateCommand": "/bin/bash -c 'echo \"vscode:vscode\" | sudo chpasswd'",
-  // "remoteUser": "vscode"
+  "postCreateCommand": "/bin/bash -c 'echo \"vscode:vscode\" | sudo chpasswd'",
+  "remoteUser": "vscode"
 }
