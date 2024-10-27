@@ -1,6 +1,10 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "name": "Openbox",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
     "ghcr.io/rahuldhole/openbox/xrdp:latest": {}
-  }
+  },
+  "postCreateCommand": "/bin/bash -c 'echo \"vscode:vscode\" | sudo chpasswd && /bin/bash .devcontainer/setup.sh'",
+  "postStartCommand": "sudo service xrdp restart",
+  "remoteUser": "vscode"
 }
