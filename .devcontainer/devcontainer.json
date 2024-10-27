@@ -2,13 +2,17 @@
   "name": "Openbox",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "runArgs": [
-    "--shm-size=2g" // chrome needs it
+    "--device=/dev/net/tun",// needed to tailscale
+    "--shm-size=2g" // needed for browsers
   ],
   "features": {
     "ghcr.io/tailscale/codespace/tailscale:latest": {},
     "ghcr.io/rahuldhole/openbox/xrdp:latest": {},
-    "ghcr.io/rahuldhole/openbox/google-chrome:latest": {}
+    "ghcr.io/rahuldhole/openbox/google-chrome:latest": {},
+    "ghcr.io/rahuldhole/openbox/google-edge:latest": {},
+    "ghcr.io/rahuldhole/openbox/vscode:latest": {}
   },
-  "postCreateCommand": "/bin/bash -c 'echo \"vscode:vscode\" | sudo chpasswd && /bin/bash .devcontainer/setup.sh'",
-  "remoteUser": "vscode"
+  // need to create password for xrdp connection
+  // "postCreateCommand": "/bin/bash -c 'echo \"vscode:vscode\" | sudo chpasswd'",
+  // "remoteUser": "vscode"
 }
