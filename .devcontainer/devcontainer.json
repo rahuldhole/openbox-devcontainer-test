@@ -1,10 +1,14 @@
 {
   "name": "Openbox",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "runArgs": [
+    "--shm-size=2g" // chrome needs it
+  ],
   "features": {
-    "ghcr.io/rahuldhole/openbox/xrdp:latest": {}
+    "ghcr.io/tailscale/codespace/tailscale:latest": {},
+    "ghcr.io/rahuldhole/openbox/xrdp:latest": {},
+    "ghcr.io/rahuldhole/openbox/google-chrome:latest": {}
   },
   "postCreateCommand": "/bin/bash -c 'echo \"vscode:vscode\" | sudo chpasswd && /bin/bash .devcontainer/setup.sh'",
-  "postStartCommand": "sudo service xrdp restart",
   "remoteUser": "vscode"
 }
